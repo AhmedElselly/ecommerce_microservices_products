@@ -15,8 +15,10 @@ export class ProductsService {
     return this.productRepo.save(product);
   }
 
-  findAll() {
-    return this.productRepo.find();
+  async findAll() {
+    const products = await this.productRepo.find();
+    console.log({ products });
+    return products;
   }
 
   findOne(id: number) {
