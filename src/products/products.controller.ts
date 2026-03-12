@@ -19,12 +19,14 @@ export class ProductsController {
     return this.productsService.findAll();
   }
 
-  @Get('/:id')
+  // @Get('/:id')
+  @MessagePattern({ cmd: 'get_product' })
   findOne(@Param('id') id: number) {
     return this.productsService.findOne(id);
   }
 
-  @Delete('/:id')
+  // @Delete('/:id')
+  @MessagePattern({ cmd: 'remove_product' })
   remove(@Param('id') id: number) {
     return this.productsService.remove(id);
   }
